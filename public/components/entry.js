@@ -4,5 +4,5 @@ angular.module('myapp',[])
       movie: '<',
       onClick:'<'
 	},
-	templateUrl: 'puplic/templets/entry.html'
+	templateUrl: 'public/templets/entry.html'
 });
