@@ -1,6 +1,6 @@
 var mongoose = require('mongoose');
 
-mongoURI = 'mongodb://localhost/'; //not complete
+mongoURI = 'mongodb://localhost/27017'; 
 mongoose.connect(mongoURI);
 
 // Run in seperate terminal window using 'mongod'
@@ -11,3 +11,5 @@ db.once('open', function () {
 });
 
 module.exports = db;
+
+ 
