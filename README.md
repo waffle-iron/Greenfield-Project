@@ -1,6 +1,5 @@
-# Project Name
 # Greenfield-Project
-> Movie Box
+# Movie Box
 
 ## Team
   - __Product Owner__: @kamellababidi
