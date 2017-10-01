@@ -5,11 +5,9 @@ var app=express();
 
 //trying the database
 
-
-
 app.use(express.static(__dirname));
-var port = process.env.PORT||3000;
-app.listen(port,function(err){
+//var port = process.env.PORT||8080;
+app.listen(3000,function(err){
 	console.log('connected')
 })
 
