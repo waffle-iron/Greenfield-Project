@@ -1,1 +1,13 @@
-<div>{{$ctrl.movie}}</div>
+<div>
+  <div>{{$ctrl.movie.title}}</div>
+  <div>{{$ctrl.movie.genres[0].name}}</div>
+  <div>{{$ctrl.movie.release_date}}</div>
+  <div>{{$ctrl.movie.popularity}}</div>
+  <div>
+  	<img ng-src={{$ctrl.movie.poster_path}} />
+  </div>
+  <div>{{$ctrl.movie.overview}}</div>	
+  <div>{{$ctrl.movie.vote_count}}</div>		
+  <div>{{$ctrl.movie.vote_average}}</div>
+</div>
+
