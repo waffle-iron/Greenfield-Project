@@ -1,13 +1,13 @@
-<li>
-	<div>
-		<div>
-	 	   <img ng-src={{$ctrl.movie.img}}/>
-	    </div>
-	    <div ng-click="$ctrl.onClick($ctrl.movie)">
-	     	{{$ctrl.movie.title}}
-	    </div>
-	    <div>
-		    {{$ctrl.movie.overview}}
-	    </div>
-	</div>
-</li>
+<div>
+  <h3 style="color: red">title: {{$ctrl.movie.title}}</h3>
+  <div>{{$ctrl.movie.genres[0].name}}</div>
+  <div>{{$ctrl.movie.release_date}}</div>
+  <div>{{$ctrl.movie.popularity}}</div>
+  <div>
+  	<img src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} />
+  </div>
+  <div>{{$ctrl.movie.overview}}</div>	
+  <div>{{$ctrl.movie.vote_count}}</div>		
+  <div>{{$ctrl.movie.vote_average}}</div>
+</div>
+

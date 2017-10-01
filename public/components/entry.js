@@ -1,8 +1,7 @@
-angular.module('myapp',[])
+angular.module('myapp')
 .component('entry',{
     bindings:{
-      movie: '<',
-      onClick:'<'
-	},
-	templateUrl: 'public/templets/entry.html'
+    	movie:'<'
+    },
+	templateUrl:'public/templates/entry.html'
 });
