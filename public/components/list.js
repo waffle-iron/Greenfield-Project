@@ -6,6 +6,6 @@ angular.module('myapp',[])
   	onClick: '<'
 
   },
-  templateUrl: 'puplic/templets/list.html'
+  templateUrl: 'public/templets/list.html'
 
 })
