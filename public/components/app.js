@@ -1,7 +1,7 @@
 angular.module('myapp',[])
 .component('app',{
 	controller:function(){   
-		this.movie={};
+		this.movie=[];
 		this.id=undefined;
 		//change searched movie
 		var x=this;
@@ -24,9 +24,10 @@ angular.module('myapp',[])
               dataType: 'json',
               success: function(data){
     			console.log(data)
-    			x.movie=data
+    			x.movie[0]=data
             }
             })
+			 
 		}
 	},	
 	templateUrl:'public/templates/app.html'
