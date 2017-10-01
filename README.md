@@ -32,4 +32,16 @@
 
 ## Development
 
+
+
 ### Installing Dependencies
+
+
+### Roadmap
+
+View the project roadmap [here]
+
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
