@@ -1,7 +1,7 @@
 angular.module('myapp')
 .component('search',{
 	controller:function(){
-		
+		this.input={val:document.getElementById('input')}
 	},
 	bindings:{
 		change:'<'
