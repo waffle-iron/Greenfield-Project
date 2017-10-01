@@ -1,6 +1,6 @@
 angular.module('myapp',[])
 .component('app',{
-	controller:function(){
+	controller:function(){   
 		this.movie={};
 		this.id=undefined;
 		//change searched movie
@@ -8,12 +8,14 @@ angular.module('myapp',[])
 		this.change=function(){
 			//convert the name to id
 			var text=this.input.val.value
-			for (var i=0;i<window.converter.length;i++){
-				if(text==window.converter[i].original_title){
-					this.id=window.converter[i].id;
+			text=text.toLowerCase();
+			for (var i=0;i<window.convertor.length;i++){
+				titel=window.convertor[i].original_title.toLowerCase()
+				if(text==titel){
+					this.id=window.convertor[i].id;
+					break;
 				}
 			}
-			//console.log(window.converter)
 			console.log(text)
 			 $.ajax({
   		 	  async:false,
