@@ -1,6 +1,5 @@
-# Project Name
 # Greenfield-Project
-> Movie Box
+# Movie Box
 
 ## Team
   - __Product Owner__: @kamellababidi
@@ -13,6 +12,9 @@
 2. [Requirements](#requirements)
 3. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
+4. [Roadmap](#Roadmap)
+5. [Contributing](#Contributing)
+
 
 
 ## Usage
@@ -30,4 +32,16 @@
 
 ## Development
 
+
+
 ### Installing Dependencies
+
+
+### Roadmap
+
+View the project roadmap [here]
+
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for contribution guidelines.
