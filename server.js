@@ -4,24 +4,12 @@ var schema= require("./Database/Model/Movie.js");
 var app=express();
 
 //trying the database
-var record= new schema({image: "image",
-id:1,
-title: "movie",
-overview:"movie"});
 
-record.save(function(error, result){
-if(error){
-	throw error;
-}
-else{
-	console.log("record added");
-}
-});
 
 
 app.use(express.static(__dirname));
-
-app.listen(8000,function(err){
+var port = process.env.PORT||3000;
+app.listen(port,function(err){
 	console.log('connected')
 })
 
