@@ -1,11 +1,8 @@
-angular.module('myapp',[])
+angular.module('myapp')
 .component('list',{
-  
   bindings:{
-  	movies:  '<',
-  	onClick: '<'
-
+  	movie:  '<'
   },
-  templateUrl: 'public/templets/list.html'
+  templateUrl: 'public/templates/list.html'
 
 })
