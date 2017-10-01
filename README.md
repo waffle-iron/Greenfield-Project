@@ -12,6 +12,8 @@
 2. [Requirements](#requirements)
 3. [Development](#development)
     1. [Installing Dependencies](#installing-dependencies)
+4.Roadmap
+5.Contributing
 
 
 ## Usage
