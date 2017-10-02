@@ -1,5 +1,5 @@
 <div>
-  <h3 style="color: red">title: {{$ctrl.movie.title}}</h3>
+  <div style="color: red">title: {{$ctrl.movie.title}}</div>
   <div>{{$ctrl.movie.genres[0].name}}</div>
   <div>{{$ctrl.movie.release_date}}</div>
   <div>{{$ctrl.movie.popularity}}</div>
@@ -9,5 +9,7 @@
   <div>{{$ctrl.movie.overview}}</div>	
   <div>{{$ctrl.movie.vote_count}}</div>		
   <div>{{$ctrl.movie.vote_average}}</div>
-</div>
-
+ </div>
+ <div>
+  <button ng-click='$ctrl.favorite($ctrl.movie.id,$ctrl.movie.title,$ctrl.movie.genres[0].name,$ctrl.movie.release_date,$ctrl.movie.popularity,$ctrl.movie.overview,$ctrl.movie.vote_count,$ctrl.movie.vote_average,ctrl.movie.poster_path)'>Add to favorite</button>
+</div> 

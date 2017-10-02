@@ -7,13 +7,12 @@ var mongoose = require('mongoose');
 var movieSchema = mongoose.Schema({
   id: Number,
   title: String,
- // genresname: String,// genrs:[{id: 10752 , name: "War"},{id: 18, name: "Drama"}]
   release_date: Date,
   popularity: String,
- // poster_path: String,
   overview: String,
   vote_count: String,
-  vote_average: Number 
+  vote_average: Number,
+  poster_path: String
 });
 
 var Movie = mongoose.model('Movie', movieSchema);
