@@ -1,7 +1,8 @@
 angular.module('myapp')
 .component('list',{
   bindings:{
-  	movie:  '<'
+  	movie:  '<',
+  	trailer:'<'
   },
   templateUrl: 'public/templates/list.html'
 
