@@ -51,7 +51,7 @@ record.save(function(error, result){
    throw error;
   }
  });
-
+	res.send('done')
 })
 var port = process.env.PORT||8080;
 app.listen(port,function(err){

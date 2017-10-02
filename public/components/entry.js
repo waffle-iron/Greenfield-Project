@@ -11,6 +11,7 @@ angular.module('myapp')
               data: obj,
               dataType: "html"
              });
+             alert('added to favorite')
 			}
 	},
     bindings:{
