@@ -2,16 +2,10 @@
 <center> <div class="font">
   <h3> <span style="color: red"> Title: </span> <span style="color: green">{{$ctrl.movie.title}}</span></h3>
   <div>
-    <img src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="400" height="300" />
+    <img style=" border-radius: 50%" src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="400" height="300" />
   </div>
-  <div><span style="color:red"> Gener: </span><span style="color: blue">{{$ctrl.movie.genres[0].name}}</span></div>  
-  <div> <span style="color:red"> Release Date: </span> <span style="color: blue">{{$ctrl.movie.release_date}} </span></div>
-  <div> <span style="color:red"> Popularity: </span> <span style="color: blue">{{$ctrl.movie.popularity}} </span></div>
-  <div style="background-color:white;color:white;padding:80px;"> <span style="color:red"> Overview: </span><span style="color:blue">{{$ctrl.movie.overview}}</span></div>  
-  <div><span style="color:red"> Vote-Count: </span> <span style="color:blue">{{$ctrl.movie.vote_count}}</span></div>    
-  <div> <span style="color:red"> Vote-Avg: </span><span style="color:blue"> {{$ctrl.movie.vote_average}} </span></div>
-</div>
--------------------------------------------------------------------------------------------
+
+
 
 </center>
 

@@ -5,7 +5,7 @@ var db = require("./Database/config.js");
 var Movie= require("./Database/Model/Movie.js");
 var User= require("./Database/Model/User.js");
 var app=express();
-var port = process.env.PORT||8000;
+var port = process.env.PORT||8080;
 var util= require("./lib/utility.js");
 
 app.set('views', __dirname + '/views');
