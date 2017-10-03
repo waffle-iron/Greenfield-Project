@@ -5,7 +5,7 @@ angular.module('favorite',[])
 		var x=this;
 		 $.ajax({
   		 	  async:false,
-              url: "http://127.0.0.1:8000/favorit",
+              url: "http://127.0.0.1:8080/favorit",
               cache: false,
               dataType: 'json',
               success: function(data){
