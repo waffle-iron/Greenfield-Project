@@ -135,6 +135,8 @@ app.post('/add',function(req,res){
 	  vote_average:req.body.vote_average,
 	  poster_path:req.body.poster_path 
 });
+
+  
   //save novie info in our database
 record.save(function(error, result){
    if(error){
@@ -144,7 +146,21 @@ record.save(function(error, result){
 	res.send('done');
 });
 
+app.get('/go',function(req,res){
+    res.sendFile(__dirname+'/views/favoritelist.html')            
+})
 
+
+//fetch data from database
+app.get('/favorit',function(req,res){
+    console.log('hi')
+     Movie.find({},function(err,result){
+    if(err)
+      throw err;
+      console.log(result)
+    res.send(JSON.stringify(result))
+  })
+})
 
 app.listen(port,function(err){
 	console.log('connected');
