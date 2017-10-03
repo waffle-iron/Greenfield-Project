@@ -6,7 +6,7 @@ angular.module('myapp')
 			var obj={id:id,title:title,name:name,date:date,popularity:popularity,overview:overview,vote_count:vote_count,vote_average:vote_average,poster_path:poster_path}
 			//make ajax request to server
 			 $.ajax({
-              url: "http://127.0.0.1:8080/add",
+              url: "http://127.0.0.1:8000/add",
               type: "POST",
               data: obj,
               dataType: "html"
