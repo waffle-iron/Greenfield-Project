@@ -5,7 +5,7 @@
     <img src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="400" height="300" />
   </div>
   <div>
-    <button ng-click='$ctrl.favorite($ctrl.movie.id,$ctrl.movie.title,$ctrl.movie.genres[0].name,$ctrl.movie.release_date,$ctrl.movie.popularity,$ctrl.movie.overview,$ctrl.movie.vote_count,$ctrl.movie.vote_average,ctrl.movie.poster_path)'>Add to favorite</button>
+    <button ng-click='$ctrl.favorite($ctrl.movie.id,$ctrl.movie.title,$ctrl.movie.genres[0].name,$ctrl.movie.release_date,$ctrl.movie.popularity,$ctrl.movie.overview,$ctrl.movie.vote_count,$ctrl.movie.vote_average,$ctrl.movie.poster_path)'>Add to favorite</button>
   </div>
   <div><span style="color:red"> Gener: </span><span style="color: blue">{{$ctrl.movie.genres[0].name}}</span></div>  
   <div> <span style="color:red"> Release Date: </span> <span style="color: blue">{{$ctrl.movie.release_date}} </span></div>

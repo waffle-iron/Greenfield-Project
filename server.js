@@ -1,5 +1,4 @@
 var express=require('express');
-var partials = require('express-partials');
 var bodyParser=require('body-parser');
 var session = require('express-session');
 var db = require("./Database/config.js");
@@ -10,7 +9,7 @@ var port = process.env.PORT||8000;
 var util= require("./lib/utility.js");
 
 app.set('views', __dirname + '/views');
-app.use(partials());
+
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -125,7 +124,7 @@ app.post('/signUp', function(req, res) {
 
 //handling post request for movie data
 app.post('/add',function(req,res){
-  var record = new schema1 ({
+  var record = new Movie ({
 	  id:req.body.id,
 	  title:req.body.title,
 	  release_date:req.body.date,
@@ -143,6 +142,7 @@ record.save(function(error, result){
    throw error;
  	}
 });
+  console.log('added')
 	res.send('done');
 });
 
