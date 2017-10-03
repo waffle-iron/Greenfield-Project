@@ -7,6 +7,7 @@ var User= require("./Database/Model/User.js");
 var app=express();
 var port = process.env.PORT||8080;
 var util= require("./lib/utility.js");
+var promise=require('promise');
 
 app.set('views', __dirname + '/views');
 
@@ -20,9 +21,9 @@ app.use(session({
 }));
 
 
-app.get('/', function(req, res) {
-  res.sendFile(__dirname+'index.html');
-});
+// app.get('/', function(req, res) {
+//   res.sendFile(__dirname+'index.html');
+// });
 
 app.get('/login', function(req, res){
 	res.sendFile(__dirname+'/views/login.html');
@@ -33,20 +34,33 @@ app.post('/login', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-  User.findOne({ username: username })
-    .exec(function(err, user) {
-      if (!user) {
-       res.sendFile(__dirname+'/views/login.html');
-      } else {
-        User.comparePassword(password, user.password, function(err, match) {
-          if (match) {
-            util.createSession(req, res, user);
-          } else {
-				res.sendFile(__dirname+'/views/login.html');
-          }
-        });
-      }
-    });
+//   User.findOne({ username: username })
+//     .exec(function(err, user) {
+//       if (!user) {
+//        res.sendFile(__dirname+'/views/login.html');
+//       } else {
+//         User.comparePassword(password, user.password, function(err, match) {
+//           if (match) {
+//             console.log('hi');
+//             util.createSession(req, res, user);
+//             res.sendFile(__dirname+'/index.html');
+
+//           } else {
+// 				res.sendFile(__dirname+'/views/login.html');
+//           }
+//         });
+//       }
+//     });
+User.find({username: username},"password", function(err, result){
+if (result.length==0){
+  res.sendFile(__dirname+'/views/login.html');
+}
+else if(result[0].password==password){
+res.sendFile(__dirname+'/index.html');
+}
+
+});
+
 });
 
 

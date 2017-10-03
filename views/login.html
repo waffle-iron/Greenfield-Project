@@ -1,7 +1,7 @@
    <!DOCTYPE html>
 <html>
 <head>
-  <title>Movie Box </title>
+  <title> Login </title>
   <script src="node_modules/angular/angular.js"></script>
   <script async charset="utf-8"
   src="//cdn.iframe.ly/embed.js?api_key=..." 
@@ -33,23 +33,27 @@
     </div>
   </nav>
   <form action="/login" method="post">
-    <div>
-      <label for="username">Username:</label>
-      <input id="username" type="text" name="username">
-    </div>
-    <div>
-      <label for="password">Password:</label>
-      <input id="password" type="password" name="password">
-    </div>
-    <div>
-      <input type="submit" value="Login">
-    </div>
-</form>
-<p>
-  <a href="/signup">Create an Account &rarr;</a>
-<p>
-
-
+      <center><div class="input-group col-lg-4">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+        <input class="form-control" id="username" type="text" name="username" placeholder="user name">
+      </div></center>
+       <br>
+    <br> 
+     <center> <div class="input-group col-lg-4">
+        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+        <input id="password" type="password" class="form-control" name="password" placeholder="Password">
+      </div></center>
+      <br>
+      <br>
+      <div>
+        <center><input type="submit" value="Login" class="btn btn-success"></center>
+      </div>
+    </form>
+    <br>
+    <center><p>
+      <a href="/signup"> Sign Up &rarr;</a>
+      <p>
+</center>
 
 </body>
 </html>
