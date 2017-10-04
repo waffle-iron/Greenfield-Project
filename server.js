@@ -9,8 +9,9 @@ var port = process.env.PORT||8080;
 var util= require("./lib/utility.js");
 var promise=require('promise');
 
-app.set('views', __dirname + '/views');
 
+app.set('views', __dirname + '/views');
+app.set('view engine', 'ejs');
 app.use(bodyParser.json());
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
@@ -21,49 +22,42 @@ app.use(session({
 }));
 
 
-// app.get('/', function(req, res) {
-//   res.sendFile(__dirname+'index.html');
-// });
+app.get('/', util.checkUser, function(req, res) {
+  // res.render('/index') 
+  res.sendFile(__dirname+'/index.html');
+  });
 
-app.get('/login', function(req, res){
-	res.sendFile(__dirname+'/views/login.html');
-} );
+app.get('/login', function(req, res) {
+  // res.render('login');
+  res.sendFile(__dirname+'/views/login.html');
+});
 
 
 app.post('/login', function(req, res) {
   var username = req.body.username;
   var password = req.body.password;
 
-//   User.findOne({ username: username })
-//     .exec(function(err, user) {
-//       if (!user) {
-//        res.sendFile(__dirname+'/views/login.html');
-//       } else {
-//         User.comparePassword(password, user.password, function(err, match) {
-//           if (match) {
-//             console.log('hi');
-//             util.createSession(req, res, user);
-//             res.sendFile(__dirname+'/index.html');
+  User.findOne({ username: username })
+    .exec(function(err, user) {
+      if (!user) {
+        res.redirect('/login');
+      } else {
 
-//           } else {
-// 				res.sendFile(__dirname+'/views/login.html');
-//           }
-//         });
-//       }
-//     });
-User.find({username: username},"password", function(err, result){
-if (result.length==0){
-  res.sendFile(__dirname+'/views/login.html');
-}
-else if(result[0].password==password){
-res.sendFile(__dirname+'/index.html');
-}
+        if(password==user.password){
+          util.createSession(req, res, user);
+          res.sendFile(__dirname+'/index.html');
+        }
+        else{
+           res.sendFile(__dirname+'/views/login.html');
+        }
 
-});
+      }
+    });
 
-});
+  });
 
 
+ 
 app.get('/logout', function(req, res){
 	req.session.destroy(function() {
     res.sendFile(__dirname+'/views/login.html');
@@ -93,46 +87,11 @@ app.post('/signUp', function(req, res) {
         });
       } else {
         console.log('Account already exists');
+        res.send(500,'Account Already Exists');
           res.sendFile(__dirname+'/views/signUp.html');
       }
     });
 });
-
-//trying the database
-
-// var Movie1 = new Movie ({ 
-// 	id:13560 ,
-// 	title:"Max", 
-// 	release_date:"2002-09-10",
-// 	popularity: '3.938836', 
-// 	overview:
-// 		"In 1918, a young, disillusioned Adolph Hitler strikes up a friendship with a Jewish art dealer while weighing a life of passion for art vs. talent at politics",
-// 	vote_average: '6.2',
-// 	vote_count: '39',
-// 	poster_path: "/fzl48iRWkalx6c84lokVBoTQJjS.jpg" })
-
-
-// var User1 = new User ({
-// 	id:1,
-// 	username: "samya",
-// 	password: "1234"})
-
-// movie1.save(function(error, result){
-//    if(error){
-//   	throw error;
-//   	}
-//  	else{
-//   	console.log("record added");
-//     }
-// });
-// User1.save(function(error, result){
-//    if(error){
-//   	throw error;
-//   	}
-//  	else{
-//   	console.log("record added");
-//     }
-// });
 
 
 
@@ -181,3 +140,41 @@ app.listen(port,function(err){
 });
 
 module.exports = app;
+
+
+//trying the database
+
+// var Movie1 = new Movie ({ 
+//  id:13560 ,
+//  title:"Max", 
+//  release_date:"2002-09-10",
+//  popularity: '3.938836', 
+//  overview:
+//    "In 1918, a young, disillusioned Adolph Hitler strikes up a friendship with a Jewish art dealer while weighing a life of passion for art vs. talent at politics",
+//  vote_average: '6.2',
+//  vote_count: '39',
+//  poster_path: "/fzl48iRWkalx6c84lokVBoTQJjS.jpg" })
+
+
+// var User1 = new User ({
+//  id:1,
+//  username: "samya",
+//  password: "1234"})
+
+// movie1.save(function(error, result){
+//    if(error){
+//    throw error;
+//    }
+//    else{
+//    console.log("record added");
+//     }
+// });
+// User1.save(function(error, result){
+//    if(error){
+//    throw error;
+//    }
+//    else{
+//    console.log("record added");
+//     }
+// });
+
