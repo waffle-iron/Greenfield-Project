@@ -1,8 +1,8 @@
   
 <center> <div class="font">
-  <h3> <span style="color: red"> Title: </span> <span style="color: green">{{$ctrl.movie.title}}</span></h3>
+  <h2> <span></span> <span style="color: #EA7117; font-weight: bold;">{{$ctrl.movie.title}}</span></h2>
   <div>
-    <img style=" border-radius: 50%" src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="400" height="300" />
+   <img class="img-rounded" src={{"http://image.tmdb.org/t/p/w185/"+$ctrl.movie.poster_path}} width="150" height="250" />
   </div>
 
 
@@ -11,8 +11,10 @@
 
 <style>
 .font{
-  font-family: serif;
+  font-style: normal;
+  font-family: courier;
   font-weight: bold;
-  font-size: 20px;
+  font-size: 16px;
 };
+
 </style>

@@ -7,8 +7,8 @@ var Promise = require('bluebird');
 //create our user model 
 var userSchema = mongoose.Schema({
 	id: Number,
-	username: String,
-	password: String 
+	username: { type: String, required: true, index: { unique: true } },
+	password: { type: String, required: true }
 });
 
 var User = mongoose.model('User' , userSchema);
