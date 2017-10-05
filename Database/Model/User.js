@@ -3,7 +3,6 @@ var mongoose = require('mongoose');
 var bcrypt = require('bcrypt-nodejs');
 var Promise = require('bluebird');
 
-
 //create our user model 
 var userSchema = mongoose.Schema({
 	id: Number,

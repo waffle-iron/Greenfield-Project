@@ -1,17 +1,19 @@
+var request = require('request');
 var express=require('express');
 var bodyParser=require('body-parser');
 var session = require('express-session');
+var Promise=require('promise');
 var db = require("./Database/config.js");
 var Movie= require("./Database/Model/Movie.js");
 var User= require("./Database/Model/User.js");
+var util= require("./lib/utility.js");
 var app=express();
 var port = process.env.PORT||8080;
-var util= require("./lib/utility.js");
-var promise=require('promise');
 
 
 app.set('views', __dirname + '/views');
 app.use(bodyParser.json());
+// Parse forms (signup/login)
 app.use(express.static(__dirname));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(session({
@@ -64,10 +66,12 @@ app.post('/login', function(req, res) {
 
       if(password==user.password){
         util.createSession(req, res, user);
+        // console.log(req.session);
         res.sendFile(__dirname+'/index.html');
       }
       else{
-        res.send(500,'Wrong Password .. Try Again');
+        // res.send(500,'Wrong Password .. Try Again');
+        res.status(500).send('Wrong Password .. Try Again');
         console.log('Wrong Password .. Try Again');
         // res.sendFile(__dirname+'/views/login.html');
      }
@@ -81,9 +85,12 @@ app.post('/login', function(req, res) {
 
 app.get('/logout', function(req, res){
 	req.session.destroy(function() {
+     console.log(req.session);
+     // res.redirect('/login');
     res.sendFile(__dirname+'/views/login.html');
   });
 });
+
 app.get('/signUp',function(req, res) {
   res.sendFile(__dirname+'/views/signUp.html');
 });
@@ -105,11 +112,13 @@ app.post('/signUp', function(req, res) {
           res.status(500).send(err);
         }
         util.createSession(req, res, newUser);
+        // console.log(req.session);
       });
     } else {
       console.log('Account already exists');
-      res.send(500,'Account Already Exists');
-      res.sendFile(__dirname+'/views/signUp.html');
+      res.status(500).send('Account Already Exists');
+      // res.send(500,'Account Already Exists');
+      // res.sendFile(__dirname+'/views/signUp.html');
     }
   });
 });
